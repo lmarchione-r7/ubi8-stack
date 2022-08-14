@@ -1,5 +1,16 @@
 # amazonlinux Base Stack
 
+docker hub image URIs:
+* `jericop/amazonlinux-build:base`
+    * Base build image **without** cloud native buildpacks user or environment variables
+* `jericop/amazonlinux-build:base-cnb`
+    * Base build image **with** cloud native buildpacks user and environment variables
+* `jericop/amazonlinux-run:base`
+    * Base run image **without** cloud native buildpacks user or environment variables
+* `jericop/amazonlinux-run:base-cnb`
+    * Base run image **with** cloud native buildpacks user and environment variables
+    
+
 ## What is a stack?
 See Paketo's [stacks documentation](https://paketo.io/docs/concepts/stacks/).
 

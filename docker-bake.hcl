@@ -78,7 +78,7 @@ target "run-base" {
     target = "run-base"
     platforms = [
         "linux/amd64",
-        // "linux/arm64",
+        "linux/arm64",
     ]
     tags = [
         "${IMAGE_NAME_PREFIX}-run:base",
@@ -92,7 +92,7 @@ target "run-base-cnb" {
     target = "run-base-cnb"
     platforms = [
         "linux/amd64",
-        // "linux/arm64",
+        "linux/arm64",
     ]
     tags = [
         "${IMAGE_NAME_PREFIX}-run:base-cnb",
@@ -106,7 +106,7 @@ target "build-base" {
     target = "build-base"
     platforms = [
         "linux/amd64",
-        // "linux/arm64",
+        "linux/arm64",
     ]
     tags = [
         "${IMAGE_NAME_PREFIX}-build:base",
@@ -120,7 +120,7 @@ target "build-base-cnb" {
     target = "build-base-cnb"
     platforms = [
         "linux/amd64",
-        // "linux/arm64",
+        "linux/arm64",
     ]
     tags = [
         "${IMAGE_NAME_PREFIX}-build:base-cnb",

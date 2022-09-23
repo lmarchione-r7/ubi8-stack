@@ -19,22 +19,26 @@ ARG package_metadata=""
 LABEL MAINTAINER=$MAINTAINER
 LABEL GIT_REPO=$GIT_REPO
 
-RUN yum update -y \
-  && yum install -y \
-    ca-certificates \
-    gnupg \
-    gzip \
-    libyaml \
-    openssl11 \
-    openssl11-libs \
-    shadow-utils \
-    tar \
-    tzdata \
-    unzip \
-    zip \
-    zlib-devel \
-  && yum clean all \
-  && rm -rf /var/cache/yum
+RUN <<EOF
+yum update -y
+yum install -y \
+  ca-certificates \
+  gnupg \
+  gzip \
+  libyaml \
+  openssl11 \
+  openssl11-libs \
+  shadow-utils \
+  tar \
+  tzdata \
+  unzip \
+  zip \
+  zlib-devel
+
+yum clean all
+rm -rf /var/cache/yum
+
+EOF
 
 # run-base-cnb image
 FROM run-base AS run-base-cnb
@@ -59,40 +63,50 @@ USER ${cnb_uid}:${cnb_gid}
 FROM run-base AS build-base
 
 # This includes all packages needed to install python from source
-RUN yum update -y \
-  && yum install -y \
-    bzip2-devel \
-    bluez-libs-devel \
-    curl \
-    gcc \
-    git \
-    gdbm-devel \
-    glibc-devel \
-    gmp-devel \
-    expat-devel \
-    jq \
-    kernel-devel \
-    libffi-devel \
-    libtirpc-devel \
-    make \
-    ncurses-devel \
-    nss-devel \
-    openssl11-devel \
-    pax \
-    readline-devel \
-    sqlite-devel \
-    tcl-devel \
-    tk-devel \
-    util-linux \
-    uuid-devel \
-    wget \
-    xz-libs \
-    zlib-devel \
-  && yum clean all \
-  && rm -rf /var/cache/yum
+RUN <<EOF
+yum update -y
+yum install -y \
+  bzip2-devel \
+  bluez-libs-devel \
+  curl \
+  gcc \
+  git \
+  gdbm-devel \
+  glibc-devel \
+  gmp-devel \
+  expat-devel \
+  jq \
+  kernel-devel \
+  libffi-devel \
+  libtirpc-devel \
+  make \
+  ncurses-devel \
+  nss-devel \
+  openssl11-devel \
+  pax \
+  readline-devel \
+  sqlite-devel \
+  tcl-devel \
+  tk-devel \
+  util-linux \
+  uuid-devel \
+  wget \
+  xz-libs \
+  zlib-devel
 
-RUN curl -sSL "https://github.com/sclevine/yj/releases/download/v5.1.0/yj-linux-amd64" > /usr/local/bin/yj && \
-  chmod +x /usr/local/bin/yj
+yum clean all
+rm -rf /var/cache/yum
+
+YJ_URL=https://github.com/sclevine/yj/releases/download/v5.1.0/yj-linux-amd64
+
+if [ $(arch) = "aarch64" ]; then
+  YJ_URL=https://github.com/sclevine/yj/releases/download/v5.1.0/yj-linux-arm64
+fi
+
+# Install yj (no checksums available)
+curl -sSL "$YJ_URL" > /usr/local/bin/yj && chmod +x /usr/local/bin/yj
+
+EOF
 
 # build-base-cnb image
 FROM build-base AS build-base-cnb

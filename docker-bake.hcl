@@ -1,17 +1,17 @@
 variable "GIT_REPO" {
-    default = "https://github.com/jericop/amazonlinux-stack"
+    default = "https://github.com/lmarchione-r7/amazonlinux-stack"
 }
 
 variable "MAINTAINER" {
-    default = "jericop"
+    default = "lmarchione-r7"
 }
 
 variable "BASE_IMAGE" {
-    default = "amazonlinux:2"
+    default = "redhat/ubi8:8.6-990"
 }
 
 variable "IMAGE_NAME_PREFIX" {
-    default = "jericop/amazonlinux"
+    default = "lmarchione737/ubi8"
 }
 
 variable "DESCRIPTION" {

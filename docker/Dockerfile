@@ -5,12 +5,12 @@ FROM ${BASE_IMAGE} AS run-base
 
 ARG cnb_uid=1000
 ARG cnb_gid=1000
-ARG distro_name="Amazon Linux"
-ARG distro_version="2"
+ARG distro_name="RHEL UBI"
+ARG distro_version="8"
 ARG homepage=$GIT_REPO
 ARG maintainer=$MAINTAINER
-ARG stack_id="io.buildpacks.stacks.amazonlinux"
-ARG description="Amazon Linux 2 stack"
+ARG stack_id="io.buildpacks.stacks.ubi8"
+ARG description="UBI8 stack"
 ARG metadata=""
 ARG mixins=""
 ARG released=""

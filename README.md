@@ -1,4 +1,4 @@
-# amazonlinux Base Stack
+# UBI8 Base Stack
 
 docker hub image URIs:
 * `lmarchione737/ubi8-build:base`

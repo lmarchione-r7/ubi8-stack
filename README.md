@@ -1,13 +1,13 @@
 # amazonlinux Base Stack
 
 docker hub image URIs:
-* `jericop/amazonlinux-build:base`
+* `lmarchione737/ubi8-build:base`
     * Base build image **without** cloud native buildpacks user or environment variables
-* `jericop/amazonlinux-build:base-cnb`
+* `lmarchione737/ubi8-build:base-cnb`
     * Base build image **with** cloud native buildpacks user and environment variables
-* `jericop/amazonlinux-run:base`
+* `lmarchione737/ubi8-run:base`
     * Base run image **without** cloud native buildpacks user or environment variables
-* `jericop/amazonlinux-run:base-cnb`
+* `lmarchione737/ubi8-run:base-cnb`
     * Base run image **with** cloud native buildpacks user and environment variables
     
 
@@ -20,7 +20,7 @@ Ideal for:
 - Apps that require some C libraries
 
 ## What's in the build and run images of this stack?
-This stack's build and run images are based on amazonlinux:2.
+This stack's build and run images are based on UBI8.
 
 ## What buildpacks support this stack?
 * The paketo [java](https://github.com/paketo-buildpacks/java) buildpack supports this stack out-of-the box.

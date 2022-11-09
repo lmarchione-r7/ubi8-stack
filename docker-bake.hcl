@@ -1,5 +1,5 @@
 variable "GIT_REPO" {
-    default = "https://github.com/lmarchione-r7/amazonlinux-stack"
+    default = "https://github.com/lmarchione-r7/ubi8-stack"
 }
 
 variable "MAINTAINER" {
